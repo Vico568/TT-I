@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import java.util.*;
 import javax.persistence.*;
 
 @Entity
@@ -10,7 +11,31 @@ public class RegistroSanitario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
-    private String nombre;
+    
+    @Column(name = "registroSanitario")
+    private String registroSanitario;
+    
+    @Column(name = "titular")
+    private String titular;
+    
+    @Column(name = "denominacionDistintiva")
+    private String denominacionDistintiva;
+    
+    @Column(name = "denominacionGenerica")
+    private String denominacionGenerica;
+    
+    @Column(name = "clasificacionLGS")
+    private String clasificacionLGS;
+    
+    @Column(name = "formaFarmaceutica")
+    private String formaFarmaceutica;
+    
+    @Column(name = "tipoMedicamento")
+    private String tipoMedicamento;
+    
+    @Column(name = "vigencia")
+    @Temporal(TemporalType.DATE)
+    private Date vigencia;
 
     public Long getId() {
         return id;
@@ -20,26 +45,60 @@ public class RegistroSanitario {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getRegistroSanitario() {
+        return registroSanitario;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setRegistroSanitario(String registroSanitario) {
+        this.registroSanitario = registroSanitario;
     }
+
+    public String getDenominacionDistintiva() {
+        return denominacionDistintiva;
+    }
+
+    public void setDenominacionDistintiva(String denominacionDistintiva) {
+        this.denominacionDistintiva = denominacionDistintiva;
+    }
+
+    public String getDenominacionGenerica() {
+        return denominacionGenerica;
+    }
+
+    public void setDenominacionGenerica(String denominacionGenerica) {
+        this.denominacionGenerica = denominacionGenerica;
+    }
+
+    public String getClasificacionLGS() {
+        return clasificacionLGS;
+    }
+
+    public void setClasificacionLGS(String clasificacionLGS) {
+        this.clasificacionLGS = clasificacionLGS;
+    }
+
+    public String getFormaFarmaceutica() {
+        return formaFarmaceutica;
+    }
+
+    public void setFormaFarmaceutica(String formaFarmaceutica) {
+        this.formaFarmaceutica = formaFarmaceutica;
+    }
+
+    public String getTipoMedicamento() {
+        return tipoMedicamento;
+    }
+
+    public void setTipoMedicamento(String tipoMedicamento) {
+        this.tipoMedicamento = tipoMedicamento;
+    }
+
+    public Date getVigencia() {
+        return vigencia;
+    }
+
+    public void setVigencia(Date vigencia) {
+        this.vigencia = vigencia;
+    }
+    
 }
-
-//<plugins>
-//			<plugin>
-//				<groupId>org.springframework.boot</groupId>
-//				<artifactId>spring-boot-maven-plugin</artifactId>
-//				<configuration>
-//					<excludes>
-//						<exclude>
-//							<groupId>org.projectlombok</groupId>
-//							<artifactId>lombok</artifactId>
-//						</exclude>
-//					</excludes>
-//				</configuration>
-//			</plugin>
-//		</plugins>

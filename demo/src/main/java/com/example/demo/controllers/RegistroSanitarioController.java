@@ -1,13 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.example.demo.controllers;
 
-/**
- *
- * @author Victor López Salazar
- */
+import com.example.demo.models.RegistroSanitario;
+import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import com.example.demo.services.RegistroSanitarioService;
+
+@RestController
+@RequestMapping("/registrosanitario")
 public class RegistroSanitarioController {
+    @Autowired
+    RegistroSanitarioService registroSanitarioService;
     
+    @GetMapping()
+    public ArrayList<RegistroSanitario> obtenerRegistroSanitario(){
+        return registroSanitarioService.obtenerRegistroSanitario();
+    }
+    
+    @GetMapping( path = "/query")
+    public ArrayList<RegistroSanitario> obtenerRegistroSanitarioPorDenominacionDistintiva(@RequestParam("denominacionDistintiva") String denominacionDistintiva) {
+        return this.registroSanitarioService.obtenerRegistroSanitarioPorDenominacionDistintiva(denominacionDistintiva);
+    }
 }
